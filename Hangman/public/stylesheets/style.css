@@ -1,0 +1,55 @@
+.btnFirst {
+  width: 150px;
+  height: 100px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+#allimg{
+  position: relative;
+  width: 350px;
+  height: 350px;
+  left: 390px;
+  bottom: 50px
+}
+img {
+    display: none;
+    width: 100px;
+    height: 100px;
+}
+#img2 {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 5;
+}
+#img1 {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: 6;
+  left: 60px;
+}
+#img3 {
+  position: absolute;
+  top: 30px;
+  left: 46px;
+  z-index: 4;
+}
+#img5 {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  z-index: 4;
+}
+#img4{
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  z-index: 4;
+}
+#img6{
+  position: absolute;
+  left: 40px;
+  top: 120px;
+  z-index: 4;
+}

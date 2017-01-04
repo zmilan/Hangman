@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <title>Vesalo</title>
+</head>
+<body>
+<div id="everything">
+    <div id="first">
+        <form method="post" action="/guess">
+            <input id="textbox" type="text" name="letter" placeholder="Put in a letter" maxlength="1">
+            <input id="search" type="submit" name="search" value="Search">
+        </form>
+        <p id="underlines"><%= underlines%></p>
+        <p id="usedLeeters"><%= usedletters%></p>
+        <p id="alert"><%=alert%></p>
+    </div>
+</div>
+<div id="allimg">
+    <img id="img1" src="images/head.png" style="display: <%= img1%>">
+    <img id="img2" src="images/body.png" style="display: <%= img2%>">
+    <img id="img3" src="images/leftarm.png" style="display: <%= img3%>">
+    <img id="img5" src="images/rightleg.png" style="display: <%= img4%>">
+    <img id="img4" src="images/rightarm.png" style="display: <%= img5%>">
+    <img id="img6" src="images/leftleg.png" style="display: <%= img6%>">
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src='javascripts/vesalojs_2.js'></script>
+</body>
+</html>
