@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     res.render('index', {
         Atitle: 'Animal names',
         Ctitle: 'City names',
@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
         Mtitle: 'Male names'
     });
 });
-router.post('/user', function (req, res, next) {
+router.post('/user', function (req, res) {
     var propNames = Object.keys(req.body);
     var names = req.app.datafile[propNames];
     var random = names[Math.floor(Math.random() * names.length)].toLowerCase();
@@ -32,16 +32,16 @@ router.post('/user', function (req, res, next) {
             img3: 'none',
             img4: 'none',
             img5: 'none',
-            img6: 'none'
-        },
+            img6: 'none'},
         count : 0,
-        alert: ""
+        alert: "You can do it!",
+        status: ''
     };
     res.redirect('vesalo');
     console.log(req.session);
 });
 //game is accesed
-router.get('/vesalo', function (req, res, next) {
+router.get('/vesalo', function (req, res) {
         res.render('user', {
             underlines: req.session.name.underlines,
             usedletters: req.session.name.usedletters,
@@ -51,11 +51,12 @@ router.get('/vesalo', function (req, res, next) {
             img4: req.session.name.imagesShown.img4,
             img5: req.session.name.imagesShown.img5,
             img6: req.session.name.imagesShown.img6,
-            alert : req.session.name.alert
+            alert : req.session.name.alert,
+            status: req.session.name.status
         });
 });
-router.post('/guess', function (req, res, next) {
-    req.session.name.alert = '';
+router.post('/guess', function (req, res) {
+    req.session.name.alert = 'You can do it!';
     var letter = req.body.letter;
     //is it a letter?
     if (!letter.match(/[a-z]/)) {
@@ -72,8 +73,7 @@ router.post('/guess', function (req, res, next) {
                         req.session.name.underlines[i] = letter;
                         req.session.name.underNumber--;
                         if (req.session.name.underNumber === 0){
-                            res.redirect('gameover/won');
-                            return;
+                            req.session.name.status = 'won';
                         }
                     }
                 }
@@ -81,8 +81,7 @@ router.post('/guess', function (req, res, next) {
                 console.log('That letter isnt in the word');
                 req.session.name.count++;
                 if (req.session.name.count === 6){
-                    res.redirect('gameover/lost');
-                    return;
+                    req.session.name.status = 'lost';
                 }
                 let lele = 'img' + req.session.name.count.toString();
                 req.session.name.imagesShown[lele] = 'block';
@@ -90,26 +89,31 @@ router.post('/guess', function (req, res, next) {
         }
     }
     //render the page
-    res.render('user', {
-        underlines: req.session.name.underlines,
-        usedletters: req.session.name.usedletters,
-        img1: req.session.name.imagesShown.img1,
-        img2: req.session.name.imagesShown.img2,
-        img3: req.session.name.imagesShown.img3,
-        img4: req.session.name.imagesShown.img4,
-        img5: req.session.name.imagesShown.img5,
-        img6: req.session.name.imagesShown.img6,
-        alert: req.session.name.alert
-    });
+        res.render('user', {
+            underlines: req.session.name.underlines,
+            usedletters: req.session.name.usedletters,
+            img1: req.session.name.imagesShown.img1,
+            img2: req.session.name.imagesShown.img2,
+            img3: req.session.name.imagesShown.img3,
+            img4: req.session.name.imagesShown.img4,
+            img5: req.session.name.imagesShown.img5,
+            img6: req.session.name.imagesShown.img6,
+            alert: req.session.name.alert,
+            status: req.session.name.status
+        });
 });
-
-router.get('/gameover/:id', function(req, res, next) {
+router.post('/gameover', function(req,res) {
+    res.send(req.body.data);
+});
+router.get('/gameover/:id', function(req, res) {
     if (req.params.id == 'lost') {
         var str = 'Game over, you lose!';
-        var wrd = 'The wanted word was ' + req.session.name.word;
-    } else {
+        var wrd = 'The wanted word was ' + '\'' + req.session.name.word + '\'';
+    } else if (req.params.id == 'won'){
         var str = 'You won!';
-        var wrd = 'The wanted word was ' + req.session.name.word + ', good job';
+        var wrd = 'The wanted word was ' + '\'' + req.session.name.word + '\'' + ', good job' ;
+    }else{
+        return;
     }
     res.render('gameover', {
         title: str,

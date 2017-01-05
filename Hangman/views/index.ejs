@@ -5,13 +5,14 @@
   <title>Vesalo</title>
 </head>
 <body>
+<div id="center1">
 <form  action="/user" method="post"  id="frm">
-  <input data-id="malenames" class="btnFirst" type="submit" name="malenames" value="<%= Mtitle%>">
-  <input data-id="femalenames" class="btnFirst" type="submit" name="femalenames" value="<%= Ftitle%>">
-  <input data-id="cities" class="btnFirst" type="submit" name="cities" value="<%= Ctitle%>">
-  <input data-id="animals" class="btnFirst" type="submit" name="animals" value="<%= Atitle%>">
+  <input data-id="malenames" class="btnFirst" type="submit" name="malenames" value="<%=Mtitle%>">
+  <input data-id="femalenames" class="btnFirst" type="submit" name="femalenames" value="<%=Ftitle%>">
+  <input data-id="cities" class="btnFirst" type="submit" name="cities" value="<%=Ctitle%>">
+  <input data-id="animals" class="btnFirst" type="submit" name="animals" value="<%=Atitle%>">
 </form>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src='javascripts/vesalojs_2.js'></script>
 </body>
 </html>

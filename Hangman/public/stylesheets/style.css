@@ -4,52 +4,76 @@
   margin-right: 20px;
   font-size: 20px;
 }
+#center1{
+  padding: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+#center2{
+  padding: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 1px solid darkred;
+}
+#textbox{
+  width: 200px;
+  height:25px;
+  border-color: royalblue;
+  border-radius: 6px;
+  text-align: center;
+}
+#search{
+  padding: 0;
+  height:25px;
+  width:80px;
+}
+#usedLeeters{
+  border: 1px solid royalblue;
+  border-radius: 6px;
+}
 #allimg{
+  width: 100px;
+  height: 260px;
   position: relative;
-  width: 350px;
-  height: 350px;
-  left: 390px;
-  bottom: 50px
+  left: 50%;
+  transform: translate(-50%);
 }
 img {
-    display: none;
     width: 100px;
     height: 100px;
 }
 #img2 {
   position: absolute;
   top: 40px;
-  left: 40px;
   z-index: 5;
 }
 #img1 {
+  margin-left: 20px;
   width: 60px;
   height: 60px;
   position: absolute;
   z-index: 6;
-  left: 60px;
 }
 #img3 {
   position: absolute;
-  top: 30px;
-  left: 46px;
+  left: 2px;
+  top: 28px;
   z-index: 4;
 }
 #img5 {
   position: absolute;
-  top: 120px;
-  left: 40px;
+  top: 118px;
   z-index: 4;
 }
 #img4{
   position: absolute;
   top: 30px;
-  left: 40px;
   z-index: 4;
 }
 #img6{
   position: absolute;
-  left: 40px;
-  top: 120px;
+  top: 118px;
   z-index: 4;
 }
