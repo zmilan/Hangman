@@ -13,26 +13,25 @@
 <body>
 <div id="center2">
     <div id="first">
-        <form method="post" action="/guess">
             <input id="textbox" type="text" name="letter" placeholder="  Put in a letter" maxlength="1">
-            <input id="search" class="btn btn-primary btn-lg" type="submit" name="search" value="Search">
-        </form>
+            <input id="search" class="btn btn-primary btn-lg" type="button" name="search" value="Search">
     </div>
     <div id="under">
-        <p id="underlines"><%= underlines%></p>
-        <p id="usedLeeters">Used letters: <%= usedletters%></p>
+        <p id="underlines"><%=underlines%></p>
+        <div id="plavo">
+            <p id="left">Used letters:</p><p id="usedLeeters"></p>
+        </div>
         <p id="alert"><%=alert%></p>
     </div>
     <div id="allimg">
-    <img id="img1" class="img" src="images/head.png" style="display:<%=img1%>">
-    <img id="img2" class="img" src="images/body.png" style="display:<%=img2%>">
-    <img id="img3" class="img" src="images/leftarm.png" style="display:<%=img3%>">
-    <img id="img4" class="img" src="images/rightarm.png" style="display:<%=img4%>">
-    <img id="img5" class="img" src="images/rightleg.png" style="display:<%=img5%>">
-    <img id="img6" class="img6" src="images/leftleg.png" style="display:<%=img6%>">
+    <img id="img1" class="img" src="images/head.png">
+    <img id="img2" class="img" src="images/body.png">
+    <img id="img3" class="img" src="images/leftarm.png">
+    <img id="img4" class="img" src="images/rightarm.png">
+    <img id="img5" class="img" src="images/rightleg.png">
+    <img id="img6" class="img" src="images/leftleg.png">
     </div>
 </div>
-<input id="q" type="hidden" value="<%=status%>">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src='javascripts/vesalojs_2.js'></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
